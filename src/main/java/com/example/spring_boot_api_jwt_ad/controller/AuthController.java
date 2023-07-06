@@ -29,7 +29,10 @@ public class AuthController {
 
     @Autowired
     private TokenService tokenService;
-
+    @GetMapping("/test")
+    public String getUsers() {
+        return "List of users";
+    }
     @PostMapping("/register")
     public User register(@RequestBody User user){
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
